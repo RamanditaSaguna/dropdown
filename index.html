@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Package Delivery Portal - Indonesia</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Indonesian Address Selector</h1>
+
+        <div class="form-group">
+            <label for="province">Province:</label>
+            <select id="province" name="province">
+                <option value="">-- Select Province --</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="city">City/Regency:</label>
+            <select id="city" name="city" disabled>
+                <option value="">-- Select City/Regency --</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="kecamatan">Kecamatan (Sub-district):</label>
+            <select id="kecamatan" name="kecamatan" disabled>
+                <option value="">-- Select Kecamatan --</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="kelurahan">Kelurahan (Village/Urban):</label>
+            <select id="kelurahan" name="kelurahan" disabled>
+                <option value="">-- Select Kelurahan --</option>
+            </select>
+        </div>
+
+         <div class="form-group">
+            <label for="postalCode">Postal Code:</label>
+            <input type="text" id="postalCode" name="postalCode" readonly disabled style="background-color: #e9ecef; cursor: default;">
+        </div>
+
+        <div class="form-group">
+            <label for="streetAddress">Street Address / Details:</label>
+            <textarea id="streetAddress" name="streetAddress" rows="3" placeholder="e.g., Jl. Merdeka No. 10, RT 01 / RW 02" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-family: 'Poppins', sans-serif; font-size: 1em;"></textarea>
+        </div>
+
+
+        <div id="selected-address" style="margin-top: 25px; padding: 15px; background-color: #e0f2f7; border-left: 5px solid #00796b; border-radius: 4px; font-size: 0.9em; color: #333;">
+            <p><strong>Complete Address Preview:</strong></p>
+            <p id="address-output" style="white-space: pre-wrap;">Please make your selections above.</p>
+        </div>
+
+    </div> <!-- Close container -->
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

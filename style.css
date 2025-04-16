@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400&display=swap');
+
+:root {
+    --primary-color: #00d1ff; /* Bright cyan */
+    --secondary-color: #a020f0; /* Purple */
+    --background-dark: #1a1a2e; /* Dark blue/purple */
+    --background-light: #2a2a4e; /* Slightly lighter dark blue */
+    --text-color: #e0e0e0; /* Light gray text */
+    --text-muted: #a0a0c0; /* Muted text */
+    --border-color: #4a4a6e;
+    --glow-color: rgba(0, 209, 255, 0.5); /* Cyan glow */
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, var(--background-dark), #0f0c29); /* Dark gradient */
+    margin: 0;
+    padding: 40px 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--text-color);
+}
+
+.container {
+    background-color: var(--background-light);
+    padding: 35px 45px;
+    border-radius: 15px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.4), 0 0 15px var(--glow-color) inset;
+    width: 100%;
+    max-width: 600px; /* Slightly wider */
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Optional: Add a subtle animated border effect */
+.container::before {
+    content: '';
+    position: absolute;
+    top: -2px; left: -2px; right: -2px; bottom: -2px;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color), var(--primary-color));
+    background-size: 400% 400%;
+    z-index: -1;
+    filter: blur(5px);
+    border-radius: 17px; /* Slightly larger than container */
+    animation: glowing 20s linear infinite;
+}
+
+@keyframes glowing {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+h1 {
+    font-family: 'Orbitron', sans-serif; /* Futuristic font */
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 0 0 8px var(--glow-color);
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 400;
+    color: var(--text-muted);
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+select,
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 14px 18px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    background-color: var(--background-dark); /* Darker input background */
+    color: #ffffff; /* Brighter text for inputs */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+select {
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2300D1FF%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.4-5.4-12.8z%22%2F%3E%3C%2Fsvg%3E'); /* Cyan arrow */
+    background-repeat: no-repeat;
+    background-position: right 18px center;
+    background-size: 10px auto;
+    cursor: pointer;
+}
+
+textarea {
+    resize: vertical; /* Allow vertical resize */
+    min-height: 80px;
+}
+
+select:focus,
+input[type="text"]:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 8px var(--glow-color);
+}
+
+select:disabled,
+input:disabled,
+textarea:disabled {
+    background-color: #2a2a3a; /* Slightly different dark for disabled */
+    cursor: not-allowed;
+    opacity: 0.6;
+    color: var(--text-muted);
+}
+
+select:disabled {
+     background-image: none; /* Remove arrow for disabled select */
+}
+
+input[readonly] {
+     cursor: default;
+}
+
+#selected-address {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: rgba(0, 209, 255, 0.05); /* Very subtle cyan background */
+    border-left: 4px solid var(--primary-color);
+    border-radius: 6px;
+    font-size: 0.95em;
+    color: var(--text-muted);
+    border: 1px solid var(--border-color);
+    border-left-width: 4px; /* Emphasize left border */
+}
+
+#selected-address p:first-child { /* The "Complete Address Preview:" text */
+    color: var(--primary-color);
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.9em;
+}
+
+#address-output {
+    white-space: pre-wrap;
+    color: #ffffff; /* Brighter text for preview */
+    line-height: 1.6;
+}
